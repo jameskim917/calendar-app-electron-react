@@ -109,12 +109,14 @@
     }
   },
   "dependencies": {
+    "dayjs": "^1.11.7",
     "electron-debug": "^3.2.0",
     "electron-log": "^4.4.8",
     "electron-updater": "^5.2.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.4.0"
+    "react-router-dom": "^6.4.0",
+    "styled-components": "^5.3.6"
   },
   "devDependencies": {
     "@electron/notarize": "^1.2.3",
@@ -129,6 +131,7 @@
     "@types/react": "^18.0.17",
     "@types/react-dom": "^18.0.6",
     "@types/react-test-renderer": "^18.0.0",
+    "@types/styled-components": "^5.1.26",
     "@types/terser-webpack-plugin": "^5.0.4",
     "@types/webpack-bundle-analyzer": "^4.4.2",
     "@typescript-eslint/eslint-plugin": "^5.33.1",
