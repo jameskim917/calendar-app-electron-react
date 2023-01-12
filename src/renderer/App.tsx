@@ -1,6 +1,6 @@
 import React, {useCallback, useEffect, useRef, useMemo, useState} from 'react';
 import dayjs from 'dayjs';
-import styled, { css } from 'styled-components'
+import styled, { css, createGlobalStyle } from 'styled-components'
 
 const App = () => {
   // useEffect(() => {
@@ -141,6 +141,8 @@ const App = () => {
   const [modalVisible, setModalVisible] = useState(false);
 
   return (
+    <>
+    <GlobalStyle />
     <Wrapper>
       <SidebarContainer>
         <View style={styles.sidebarHeader}>
@@ -257,17 +259,20 @@ const App = () => {
         ) : null}
       </View>
     </SafeAreaView>
+    </>
   );
 };
 
-
+const GlobalStyle = createGlobalStyle`
+  div {
+    display: flex;
+  }
+`;
 const Wrapper = styled.div`
-  display: flex;
   flex: 1;
   flex-direction: row;
 `;
 const SidebarContainer = styled.div`
-  display: flex;
   flex: 1;
   padding: 10px;
 `;
@@ -293,8 +298,8 @@ const SidebarCalendarGroupTitleText = styled.h6`
 const SidebarCalendarGroup = styled.div`
 `;
 const SidebarCalendarItem = styled.div`
-  flex-direction: 'row';
-  align-items: 'center';
+  flex-direction: row;
+  align-items: center;
   padding: 5px 0;
 `;
 const SidebarCalendarColor = styled.div`
@@ -306,31 +311,31 @@ const SidebarCalendarColor = styled.div`
 const SidebarCalendarText = styled.p`
   font-size: 13px;
 `;
-  calendarContainer: {
-    flex: 5,
-    backgroundColor: 'white',
-  },
-  calendarHeader: {
-    flexDirection: 'row',
-    paddingVertical: 10,
-  },
-  calendarHeaderLeft: {
-    flex: 1,
-  },
-  calendarHeaderMonthYear: {
-    fontSize: 32,
-    fontWeight: 'bold',
-  },
-  calendarHeaderRight: {
-    flex: 1,
-  },
-  daysOfWeek: {
-    flexDirection: 'row',
-  },
-  dayOfWeek: {
-    width: `${(1 / 7) * 100}%`,
-    paddingVertical: 5,
-  },
+const CalendarContainer = styled.div`
+  flex: 5;
+  background-color: white;
+`;
+const CalendarHeader = styled.div`
+  flex-direction: row;
+  padding: 10px 0;
+`;
+const CalendarHeaderLeft = styled.div`
+  flex: 1;
+`;
+const CalendarHeaderMonthYear = styled.div`
+  font-size: 32px;
+  font-weight: bold;
+`;
+const CalendarHeaderRight = styled.div`
+  flex: 1;
+`;
+const DaysOfWeek = styled.div`
+  flex-direction: row;
+`;
+const DayOfWeek = styled.div`
+  width: ((1 / 7) * 100) + '%';
+  padding: 5px 0;
+`;
   monthDays: {
     flex: 1,
     flexDirection: 'row',
